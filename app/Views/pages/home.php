@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <title>My Gaming Blog</title>
+</head>
 <body>
-
-<h1>My first PHP page</h1>
-
-<?php
-echo "Hello World!";
-?>
-
+    <h1>Welcome to my Gaming Blog</h1>
+    <p>This is my first post.</p>
 </body>
 </html>
