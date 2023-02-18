@@ -39,6 +39,7 @@ $routes->get('news', [News::class, 'index']);
 $routes->get('pages', [Pages::class, 'index']);
 $routes->get('(:segment)', [Pages::class, 'view']);
 $route['default_controller'] = 'home';
+$route['about'] = 'About';
 
 
 
