@@ -5,7 +5,7 @@
 </head>
 <body>
     <ul>
-        <li><a href="<?php echo base_url(); ?>">Home</a></li>
+        <li><a href="<?php echo base_url('home'); ?>">Home</a></li>
         <li><a href="<?php echo base_url('about'); ?>">About</a></li>
         <li><a href="<?php echo base_url('contact'); ?>">Contact</a></li>
     </ul>
