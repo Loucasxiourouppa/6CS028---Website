@@ -41,6 +41,7 @@ $routes->get('(:segment)', [Pages::class, 'view']);
 $route['default_controller'] = 'home';
 $route['about'] = 'About';
 $route['post'] = 'Post';
+$route['gaming news'] = 'Gaming news';
 
 
 
