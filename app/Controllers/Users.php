@@ -14,7 +14,9 @@ class Users extends BaseController
     
 	public function logout()
 	{
-		return view('users/logout');
+		return view('templates/header')
+			  .view('users/logout')
+		      .view('templates/footer');
 	}
 	
 	public function info($user_id)
