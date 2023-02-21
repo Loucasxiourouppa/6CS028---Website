@@ -32,6 +32,7 @@ $routes->set404Override();
 
 use App\Controllers\News;
 use App\Controllers\Pages;
+use App\Controllers\Users;
 
 $routes->match(['get', 'post'], 'news/create', [News::class, 'create']);
 $routes->get('news/(:segment)', [News::class, 'view']);
@@ -42,6 +43,10 @@ $route['default_controller'] = 'home';
 $route['about'] = 'About';
 $route['post'] = 'Post';
 $route['gaming news'] = 'Gaming news';
+
+$routes->get('users', [Users::class, 'login']);
+$routes->get('users/logout', [Users::class, 'logout']);
+$routes->get('users/info/(:segment)', [Users::class, 'info']);
 
 
 

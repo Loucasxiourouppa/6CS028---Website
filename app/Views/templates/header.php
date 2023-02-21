@@ -11,6 +11,6 @@
 	
 </head>
 <body>
-	<div class="container-fluid">
+	<div class="container">
 		<?php echo view("templates/navbar"); ?>
 		<h1><?= esc($title) ?></h1>
