@@ -7,7 +7,9 @@ class Users extends BaseController
     
     public function login()
 	{
-		return view('users/login');
+		return view('templates/header')
+			  .view('users/login')
+			  .view('templates/footer');
 	}
     
 	public function logout()
@@ -19,3 +21,4 @@ class Users extends BaseController
 	{
 		print ("This is an info page for user " . $user_id) ;
 	}
+}
