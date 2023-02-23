@@ -44,7 +44,7 @@ $route['about'] = 'About';
 $route['post'] = 'Post';
 $route['gaming news'] = 'Gaming news';
 
-$routes->get('users', [Users::class, 'login']);
+$routes->get('users/login', [Users::class, 'login']);
 $routes->get('users/logout', [Users::class, 'logout']);
 $routes->get('users/info/(:segment)', [Users::class, 'info']);
 
