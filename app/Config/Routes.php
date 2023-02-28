@@ -33,21 +33,33 @@ $routes->set404Override();
 use App\Controllers\News;
 use App\Controllers\Pages;
 use App\Controllers\Users;
+use App\Controllers\game_news;
+use App\Controllers\Apis;
+$routes->get('apis', [Apis::class, 'videogamenews']);  
+$routes->get('apis/game', [Apis::class, 'videogamenews']);  
 
+$routes->get('game_news', [game_news::class, 'games']);  
 $routes->match(['get', 'post'], 'news/create', [News::class, 'create']);
 $routes->get('news/(:segment)', [News::class, 'view']);
 $routes->get('news', [News::class, 'index']);
+
+
+
+
+
 $routes->get('pages', [Pages::class, 'index']);
 $routes->get('(:segment)', [Pages::class, 'view']);
 $route['default_controller'] = 'home';
 $route['about'] = 'About';
 $route['post'] = 'Post';
-$route['gaming news'] = 'Gaming news';
+
 
 $routes->get('users/login', [Users::class, 'login']);
 $routes->get('users/logout', [Users::class, 'logout']);
 $routes->get('users/info/(:segment)', [Users::class, 'info']);
-$route['game_news'] = 'Game_news/index';
+
+
+
 $route['contact'] = 'Contact';
 $routes->get('contact_us', 'ContactUs::index');
 

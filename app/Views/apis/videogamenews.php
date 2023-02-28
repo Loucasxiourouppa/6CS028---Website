@@ -3,12 +3,8 @@
 $client = new http\Client;
 $request = new http\Client\Request;
 
-$request->setRequestUrl('https://videogames-news2.p.rapidapi.com/videogames_news/search_news');
+$request->setRequestUrl('https://videogames-news2.p.rapidapi.com/videogames_news/recent');
 $request->setRequestMethod('GET');
-$request->setQuery(new http\QueryString([
-	'query' => 'GTA'
-]));
-
 $request->setHeaders([
 	'X-RapidAPI-Key' => '13642575f2mshace0ec313c339b1p147722jsneb5fcb808122',
 	'X-RapidAPI-Host' => 'videogames-news2.p.rapidapi.com'
