@@ -18,8 +18,8 @@ class News extends BaseController
         ];
     
 		return view('templates/header', $data)
-            . view('news/index')
-            . view('templates/footer');
+            . view('news/index', $data)
+            . view('templates/footer', $data);
 	}
 
 	public function view($slug = null)

@@ -47,6 +47,10 @@ $route['gaming news'] = 'Gaming news';
 $routes->get('users/login', [Users::class, 'login']);
 $routes->get('users/logout', [Users::class, 'logout']);
 $routes->get('users/info/(:segment)', [Users::class, 'info']);
+$route['game_news'] = 'Game_news/index';
+$route['contact'] = 'Contact';
+$routes->get('contact_us', 'ContactUs::index');
+
 
 
 

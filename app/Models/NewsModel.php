@@ -11,11 +11,19 @@ class NewsModel extends Model
 	protected $allowedFields = ['title', 'slug', 'body'];
 
 	public function getNews($slug = false)
-{
-    if ($slug === false) {
-        return $this->findAll();
-    }
+    {
+        if ($slug === false) {
+            return $this->findAll();
+        }
 
-    return $this->where(['slug' => $slug])->first();
-}
+        return $this->where(['slug' => $slug])->first();
+    }
+	
+	public function deleteNews($slug)
+	{
+		$db = \Config\Database::connect();
+		$builder = $db->table('news');
+		$builder->delete(['slug' => $slug]);	
+	}
+	
 }

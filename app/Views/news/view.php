@@ -3,7 +3,7 @@
 <p id="ajaxArticle"></p>
 
 
-<p><button onclick="getData('<?= esc($news_item['slug'], 'url') ?>')">View article via Ajax</button></p>
+
 
 
 

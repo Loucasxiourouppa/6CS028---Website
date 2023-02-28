@@ -30,8 +30,8 @@
             <li><a class="dropdown-item" href="<?=base_url('about')?>">About</a></li>
             <li><a class="dropdown-item" href="<?=base_url('gaming news')?>">Game News</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Create Post</a></li>
-			<li><a class="dropdown-item" href="#">Contact us</a></li>
+            <li><a class="dropdown-item" href="<?=base_url('news/create')?>">Create Post</a></li>
+			<li><a class="dropdown-item" href="<?=base_url('contact')?>">Contact us</a></li>
           </ul>
         </li>
         <li class="nav-item">
