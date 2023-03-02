@@ -1,1 +1,1 @@
-<p>News item created successfully.</p>
+<p>Blog created successfully.</p>

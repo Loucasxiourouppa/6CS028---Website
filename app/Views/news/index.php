@@ -4,12 +4,14 @@
 
     <?php foreach ($news as $news_item): ?>
 
-        <h3><?= esc($news_item['title']) ?></h3>
 
-        <div class="main">
-            <?= esc($news_item['body']) ?>
-        </div>
-        <p><a href="<?=base_url()?>/news/<?= esc($news_item['slug'], 'url') ?>">View article</a></p>
+		<div class="card w-55">
+		  <div class="card-body">
+			<h5 class="card-title"><?= esc($news_item['title']) ?></h5>
+			<p class="card-text"><?= esc($news_item['body']) ?></p>
+			<a href="<?=base_url()?>/news/<?= esc($news_item['slug'], 'url') ?>" class="btn btn-primary">View article</a>
+		  </div>
+		</div>
 
     <?php endforeach ?>
 
