@@ -27,7 +27,7 @@
             Dropdown
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="<?=base_url('about')?>">About</a></li>
+            <li><a class="dropdown-item" href="<?=base_url('about')?>">About Us</a></li>
             <li><a class="dropdown-item" href="<?=base_url('apis')?>">Game News</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="<?=base_url('news/create')?>">Create Post</a></li>

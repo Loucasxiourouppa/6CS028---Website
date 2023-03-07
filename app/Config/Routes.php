@@ -42,6 +42,7 @@ $routes->get('game_news', [game_news::class, 'games']);
 $routes->match(['get', 'post'], 'news/create', [News::class, 'create']);
 $routes->get('news/(:segment)', [News::class, 'view']);
 $routes->get('news', [News::class, 'index']);
+$routes->get('Deleteblog', [News::class, 'Delete']);  
 
 
 

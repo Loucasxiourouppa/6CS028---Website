@@ -14,7 +14,7 @@ class News extends BaseController
 
         $data = [
             'news'  => $model->getNews(),
-            'title' => 'News archive',
+            'title' => 'Game Blogs',
         ];
     
 		return view('templates/header', $data)
@@ -29,7 +29,7 @@ class News extends BaseController
         $data['news'] = $model->getNews($slug);
 
         if (empty($data['news'])) {
-            throw new PageNotFoundException('Cannot find the news item: ' . $slug);
+            throw new PageNotFoundException('Cannot find blog: ' . $slug);
         }
 
         $data['title'] = $data['news']['title'];
@@ -48,7 +48,7 @@ class News extends BaseController
         // Checks whether the form is submitted.
         if (! $this->request->is('post')) {
             // The form is not submitted, so returns the form.
-            return view('templates/header', ['title' => 'Create a news item'])
+            return view('templates/header', ['title' => 'Create Blog'])
                 . view('news/create')
                 . view('templates/footer');
         }
@@ -78,6 +78,27 @@ class News extends BaseController
             . view('news/success')
             . view('templates/footer');
     }
+	
+	Public function delete($slug)
+	{
+		print("Delete Blog: ".$slug);
+		
+		
+		$model = model (NewsModel::class);
+		
+		$model->deleteNews($slug);
+		
+		Return redirect ()->to('news/index/2');
+		
+	}
+	
+
+	
+	
+	
+	
+	
+	
 }
 
 	

@@ -14,5 +14,5 @@
     <textarea name="body" cols="75" rows="10"><?= set_value('body') ?></textarea>
     <br>
 
-    <input type="submit" name="submit" value="Create Blog">
+    <input class="btn btn-primary" type="submit" name="submit" value="Create Blog">
 </form>
