@@ -19,7 +19,7 @@ class Apis extends BaseController
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "GET",
             CURLOPT_HTTPHEADER => [
-                "X-RapidAPI-Key: 13642575f2mshace0ec313c339b1p147722jsneb5fcb808122",
+                "X-RapidAPI-Key: 6df7509a92msh13bddbb28d52664p1e2c80jsnfafc28f381b5",
                 "X-RapidAPI-Host: videogames-news2.p.rapidapi.com",
             ],
         ]);
@@ -34,15 +34,24 @@ class Apis extends BaseController
             echo "cURL Error #:" . $err;
         } else {
             // Display response data
-            echo $response;
+          
 
             // Parse response data as JSON
             $data = json_decode($response, true);
 
             // Pass parsed data to view
             echo view('templates/header', $data);
-            ///echo view('apis/videogame', $data);
+			
+            echo view('apis/videogamenews', $data);
             echo view('templates/footer', $data);
-        }
+			
+			foreach ($data as $item) {
+			echo "Title: " . $item['title'] . "<br>";
+			echo "Date: " . $item['date'] . "<br>";
+			echo "Description: " . $item['description'] . "<br>";
+			echo "Image: " . $item['image'] . "<br>";
+			echo "Link: " . $item['link'] . "<br><br>";
+		}
+				}
     }
 }

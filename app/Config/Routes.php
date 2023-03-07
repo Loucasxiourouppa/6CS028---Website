@@ -36,11 +36,11 @@ use App\Controllers\Users;
 use App\Controllers\game_news;
 use App\Controllers\Apis;
 
-
+///this is the game news route
 $routes->get('apis', [Apis::class, 'videogame']);  
 
 
-$routes->get('apis/game', [Apis::class, 'videogamenews']);  
+$routes->get('apis/game', [Apis::class, 'videogame']);  
 
 
 
@@ -48,6 +48,7 @@ $routes->get('apis/game', [Apis::class, 'videogamenews']);
 $routes->get('game_news', [game_news::class, 'games']);  
 $routes->match(['get', 'post'], 'news/create', [News::class, 'create']);
 $routes->get('news/(:segment)', [News::class, 'view']);
+$routes->get('news', [News::class, 'index']);
 $routes->get('news', [News::class, 'index']);
 $routes->get('Deleteblog', [News::class, 'Delete']);  
 
