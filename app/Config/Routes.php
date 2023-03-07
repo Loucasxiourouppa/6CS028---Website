@@ -35,8 +35,15 @@ use App\Controllers\Pages;
 use App\Controllers\Users;
 use App\Controllers\game_news;
 use App\Controllers\Apis;
-$routes->get('apis', [Apis::class, 'videogamenews']);  
+
+
+$routes->get('apis', [Apis::class, 'videogame']);  
+
+
 $routes->get('apis/game', [Apis::class, 'videogamenews']);  
+
+
+
 
 $routes->get('game_news', [game_news::class, 'games']);  
 $routes->match(['get', 'post'], 'news/create', [News::class, 'create']);
