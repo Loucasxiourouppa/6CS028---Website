@@ -96,4 +96,18 @@ class News extends BaseController
         return redirect()->to('news');
         
     }
+	
+	public function autocomplete()
+	{
+	  $term = $this->input->get('term');
+	  $suggestions = $this->News_model->get_autocomplete_suggestions($term);
+	  echo json_encode($suggestions);
+	}
+
+	
+	
+	
+	
+	
+	
 }
