@@ -1,5 +1,7 @@
 <h2><?= esc($news['title']) ?></h2>
 <p><?= esc($news['body']) ?></p>
+<img src="<?= base_url('uploads/'.$news['image']) ?>" alt="<?= esc($news['title']) ?>">
+
 <p id="ajaxArticle"></p>
 
 

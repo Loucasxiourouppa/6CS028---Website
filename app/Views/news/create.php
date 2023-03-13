@@ -3,7 +3,7 @@
 <?= session()->getFlashdata('error') ?>
 <?= validation_list_errors() ?>
 
-<form action="<?=base_url()?>/news/create" method="post">
+<form action="<?=base_url()?>/news/create" method="post" enctype="multipart/form-data">
     <?= csrf_field() ?>
 
     <label for="title">Title</label>
@@ -12,6 +12,10 @@
 
     <label for="body">Text</label>
     <textarea name="body" cols="75" rows="10"><?= set_value('body') ?></textarea>
+    <br>
+
+    <label for="image">Image</label>
+    <input type="file" name="image">
     <br>
 
     <input class="btn btn-primary" type="submit" name="submit" value="Create Blog">
