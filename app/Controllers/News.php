@@ -84,7 +84,7 @@ class News extends BaseController
             . view('templates/footer');
     }
     
-    public function delete($slug)
+    public function delete_blog($slug)
     {
         print("Delete Blog: ".$slug);
         
@@ -93,7 +93,7 @@ class News extends BaseController
         
         $model->deleteNews($slug);
         
-        return redirect()->to('news/index/2');
+        return redirect()->to('news');
         
     }
 }
