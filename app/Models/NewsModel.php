@@ -26,4 +26,20 @@ class NewsModel extends Model
 		$builder->delete(['slug' => $slug]);	
 	}
 	
+	
+	
+	
+	
+	public function search($search_query) {
+	  $this->db->select('*');
+	  $this->db->from('news');
+	  $this->db->like('title', $search_query);
+	  $this->db->or_like('content', $search_query);
+	  $query = $this->db->get();
+	  return $query->result_array();
+	}
 }
+
+
+
+	

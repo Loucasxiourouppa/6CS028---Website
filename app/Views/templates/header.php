@@ -38,32 +38,32 @@
           
         </li>
       </ul>
-      <form class="d-flex" role="search">
-		<input class="form-control me-2" type="search" id="search" placeholder="Search" aria-label="Search">
-		<button class="btn btn-outline-success" type="submit">Search</button>
-	  </form>
-	
+    <form class="d-flex" role="search">
+	  <input class="form-control me-2" type="search" id="search" placeholder="Search" aria-label="Search">
+	  <button class="btn btn-outline-success" type="submit">Search</button>
+	</form>
+	<div id="search-results"></div>
+
 	<script>
-	  $(function() {
-		$('#search').autocomplete({
-		  source: function(request, response) {
-			$.ajax({
-			  url: '<?=base_url('news/autocomplete')?>',
-			  dataType: 'json',
-			  data: {
-				term: request.term
-			  },
-			  success: function(data) {
-				response(data);
-			  }
-			});
-		  },
-		  minLength: 2
+	$(document).ready(function() {
+	  $('#search').on('input', function() {
+		var search_query = $(this).val();
+		$.ajax({
+		  type: 'POST',
+		  url: '<?=base_url("news/search")?>',
+		  data: {'search_query': search_query},
+		  success: function(data) {
+			$('#search-results').html(data);
+		  }
 		});
 	  });
+	});
 	</script>
 
 	
+
+	
+
 	
 	
 	

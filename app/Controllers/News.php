@@ -105,7 +105,13 @@ class News extends BaseController
 	}
 
 	
-	
+	public function search() {
+  $search_query = $this->input->post('search_query');
+  $data['results'] = $this->News_model->search($search_query);
+  $this->load->view('search_results', $data);
+}
+
+
 	
 	
 	

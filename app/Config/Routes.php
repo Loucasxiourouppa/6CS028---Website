@@ -41,7 +41,7 @@ $routes->get('apis', [Apis::class, 'videogame']);
 $routes->get('apis/game', [Apis::class, 'videogame']);  
 $routes->get('game_news', [game_news::class, 'games']);  
 
-
+$routes->get('news/autocomplete', 'News::autocomplete');
 
 $routes->match(['get', 'post'], 'news/create', [News::class, 'create']);
 $routes->get('news/(:segment)', [News::class, 'view']);
@@ -73,7 +73,7 @@ $routes->get('contact_us', 'ContactUs::index');
 
 
 
-
+$route['search'] = 'NewsController/search';
 
 
 
