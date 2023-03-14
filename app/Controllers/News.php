@@ -17,12 +17,12 @@ class News extends BaseController
             'title' => 'Game Blogs',
         ];
     
-        return view('templates/header', $data)
+		return view('templates/header', $data)
             . view('news/index', $data)
             . view('templates/footer', $data);
-    }
+	}
 
-    public function view($slug = null)
+	public function view($slug = null)
     {
         $model = model(NewsModel::class);
 
@@ -38,9 +38,10 @@ class News extends BaseController
             . view('news/view')
             . view('templates/footer');
     }
-    
-    // This function is for the creation of news articles
-    public function create()
+	
+	
+	//This function is for the creation of news articles
+	public function create()
     {
         helper('form');
 
@@ -51,14 +52,13 @@ class News extends BaseController
                 . view('news/create')
                 . view('templates/footer');
         }
-        
-        $post = $this->request->getPost(['title', 'body']);
+	
+		$post = $this->request->getPost(['title', 'body']);
 
         // Checks whether the submitted data passed the validation rules.
         if (! $this->validateData($post, [
             'title' => 'required|max_length[255]|min_length[3]',
             'body'  => 'required|max_length[5000]|min_length[10]',
-            'image' => 'uploaded[image]|mime_in[image,image/jpg,image/jpeg,image/png]|max_size[image,4096]',
         ])) {
             // The validation fails, so returns the form.
             return view('templates/header', ['title' => 'Create a news item'])
@@ -68,52 +68,38 @@ class News extends BaseController
 
         $model = model(NewsModel::class);
 
-        $image = $this->request->getFile('image');
-        $imageName = $image->getName();
-        $image->move(WRITEPATH . 'uploads');
-
         $model->save([
             'title' => $post['title'],
             'slug'  => url_title($post['title'], '-', true),
             'body'  => $post['body'],
-            'image' => $imageName,
         ]);
 
         return view('templates/header', ['title' => 'Create a news item'])
             . view('news/success')
             . view('templates/footer');
     }
-    
-    public function delete_blog($slug)
-    {
-        print("Delete Blog: ".$slug);
-        
-        
-        $model = model(NewsModel::class);
-        
-        $model->deleteNews($slug);
-        
-        return redirect()->to('news');
-        
-    }
 	
-	public function autocomplete()
+	Public function deleteNews($slug)
 	{
-	  $term = $this->input->get('term');
-	  $suggestions = $this->News_model->get_autocomplete_suggestions($term);
-	  echo json_encode($suggestions);
+		print("Delete Blog: ".$slug);
+		
+		
+		$model = model (NewsModel::class);
+		
+		$model->deleteNews($slug);
+		
+		Return redirect ()->to('news/index/2');
+		
 	}
+	
 
 	
-	public function search() {
-  $search_query = $this->input->post('search_query');
-  $data['results'] = $this->News_model->search($search_query);
-  $this->load->view('search_results', $data);
-}
-
-
+	
 	
 	
 	
 	
 }
+
+	
+

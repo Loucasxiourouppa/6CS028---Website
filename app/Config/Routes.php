@@ -53,6 +53,8 @@ $routes->get('Deleteblog', [News::class, 'Delete']);
 
 
 
+$routes->get('news/delete/(:any)', 'News::deleteNews');
+
 
 
 $routes->get('pages', [Pages::class, 'index']);
