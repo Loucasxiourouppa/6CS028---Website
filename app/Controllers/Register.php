@@ -1,53 +1,36 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-
 class Register extends CI_Controller {
-
-    public function __construct()
-    {
+    public function __construct() {
         parent::__construct();
-        $this->load->helper('form');
+        $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
-        $this->load->model('user_model');
+        $this->load->model('User_model');
     }
-
-    public function index()
-    {
-        $this->form_validation->set_rules('username', 'Username', 'required|is_unique[users.username]',
-            array(
-                'required' => 'Please enter a username',
-                'is_unique' => 'This username is already taken'
-            )
-        );
-        $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[users.email]',
-            array(
-                'required' => 'Please enter your email address',
-                'valid_email' => 'Please enter a valid email address',
-                'is_unique' => 'This email is already registered'
-            )
-        );
-        $this->form_validation->set_rules('password', 'Password', 'required|min_length[6]',
-            array(
-                'required' => 'Please enter a password',
-                'min_length' => 'Password must be at least 6 characters long'
-            )
-        );
-        $this->form_validation->set_rules('password_confirm', 'Password Confirmation', 'required|matches[password]',
-            array(
-                'required' => 'Please confirm your password',
-                'matches' => 'Passwords do not match'
-            )
-        );
-
-        if ($this->form_validation->run() === FALSE)
-        {
+ 
+    public function index() {
+        $this->load->view('register');
+    }
+ 
+    public function register_user() {
+        // validate form input
+        $this->form_validation->set_rules('username', 'Username', 'required|trim|is_unique[users.username]');
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[users.email]');
+        $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[8]|max_length[32]');
+        $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'required|trim|matches[password]');
+ 
+        if ($this->form_validation->run() == false) {
+            // validation failed, show registration form again
             $this->load->view('register');
-        }
-        else
-        {
-            $this->user_model->create_user();
+        } else {
+            // validation succeeded, insert user data into database
+            $data = array(
+                'username' => $this->input->post('username'),
+                'email' => $this->input->post('email'),
+                'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+                // add any other user data you want to insert into the database
+            );
+            $this->User_model->insert_user($data);
             redirect('login');
         }
     }
-
 }

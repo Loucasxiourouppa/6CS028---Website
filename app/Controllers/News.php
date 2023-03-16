@@ -79,18 +79,18 @@ class News extends BaseController
             . view('templates/footer');
     }
 	
-	Public function deleteNews($slug)
-	{
-		print("Delete Blog: ".$slug);
-		
-		
-		$model = model (NewsModel::class);
-		
-		$model->deleteNews($slug);
-		
-		Return redirect ()->to('news/index/2');
-		
-	}
+	public function deleteNews($slug = null)
+{
+    if (!$slug) {
+        throw new PageNotFoundException('Cannot find blog');
+    }
+    
+    $model = model(NewsModel::class);
+    $model->deleteNews($slug);
+
+    return redirect()->to('/news');
+}
+
 	
 
 	

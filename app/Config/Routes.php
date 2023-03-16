@@ -79,6 +79,7 @@ $route['search'] = 'NewsController/search';
 
 
 
+$routes->get('register', 'Register::index');
 
 
 
