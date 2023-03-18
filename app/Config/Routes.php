@@ -63,6 +63,10 @@ $route['default_controller'] = 'home';
 $route['about'] = 'About';
 $route['post'] = 'Post';
 
+$routes->add('users/login', 'Login::index');
+
+
+
 
 $routes->get('users/login', [Users::class, 'login']);
 $routes->get('users/logout', [Users::class, 'logout']);
@@ -80,6 +84,7 @@ $route['search'] = 'NewsController/search';
 
 
 $routes->get('pages/register', 'Register::index');
+
 
 
 
