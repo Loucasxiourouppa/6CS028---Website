@@ -1,1 +1,1 @@
-<p>Blog created successfully.</p>
+<p>Blog created successfully!.</p>
