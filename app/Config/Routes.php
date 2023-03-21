@@ -46,8 +46,9 @@ $routes->get('news/autocomplete', 'News::autocomplete');
 
 ///this is route for news page to create blogs
 $routes->match(['get', 'post'], 'news/create', [News::class, 'create']);
-
+///This is the route to delete a blog
 $routes->get('news/delete/(:segment)', [News::class, 'deleteNews']);
+///This is the route to view a blog
 $routes->get('news/(:segment)', [News::class, 'view']);
 
 
