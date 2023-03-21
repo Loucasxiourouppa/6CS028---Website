@@ -79,16 +79,27 @@ class News extends BaseController
             . view('templates/footer');
     }
 	
-	public function deleteNews($slug = null)
+	public function deleteNews($slug)
 {
-    if (!$slug) {
-        throw new PageNotFoundException('Cannot find blog');
-    }
-    
     $model = model(NewsModel::class);
-    $model->deleteNews($slug);
+    $data['news'] = $model->where('slug', $slug)->first();
 
-    return redirect()->to('/news');
+    if (empty($data['news'])) {
+        throw new PageNotFoundException('Cannot find blog: ' . $slug);
+    }
+
+    $model->delete($data['news']['id']);
+
+    $data['title'] = $data['news']['title'];
+
+    return view('templates/header', $data)
+        . view('news/delete_success')
+        . view('templates/footer');
+}
+
+
+
+	
 }
 
 	
@@ -99,7 +110,7 @@ class News extends BaseController
 	
 	
 	
-}
+
 
 	
 

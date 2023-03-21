@@ -43,17 +43,25 @@ $routes->get('game_news', [game_news::class, 'games']);
 
 $routes->get('news/autocomplete', 'News::autocomplete');
 
+
+///this is route for news page to create blogs
 $routes->match(['get', 'post'], 'news/create', [News::class, 'create']);
+
+$routes->get('news/delete/(:segment)', [News::class, 'deleteNews']);
 $routes->get('news/(:segment)', [News::class, 'view']);
 
 
 
+
+
+
+
 $routes->get('news', [News::class, 'index']);
-$routes->get('Deleteblog', [News::class, 'Delete']);  
 
 
 
-$routes->get('news/delete/(:any)', 'News::deleteNews');
+
+
 
 
 

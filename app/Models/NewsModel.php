@@ -19,12 +19,7 @@ class NewsModel extends Model
         return $this->where(['slug' => $slug])->first();
     }
 	
-	public function deleteNews($slug)
-	{
-		$db = \Config\Database::connect();
-		$builder = $db->table('news');
-		$builder->delete(['slug' => $slug]);	
-	}
+	
 	
 	
 	

@@ -1,0 +1,1 @@
+<p>Blog deleted successfully!.</p>
