@@ -1,3 +1,31 @@
+<!-- View file -->
+
+<!-- Add a viewport meta tag to enable responsive design -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Add a style tag to include the custom CSS styles -->
+<style>
+  /* Styles for screens with a maximum width of 767px */
+  @media (max-width: 767px) {
+    label {
+      width: 100%;
+      display: block;
+      margin-bottom: 10px;
+    }
+    
+    input[type="text"], textarea {
+      width: 100%;
+      box-sizing: border-box;
+    }
+    
+    input[type="file"] {
+      width: auto;
+      margin-top: 10px;
+    }
+  }
+</style>
+
+<!-- Add the HTML markup for the form -->
 <h2><?= esc($title) ?></h2>
 
 <?= session()->getFlashdata('error') ?>
